@@ -1,13 +1,12 @@
-function markAsDone(todos) {
-    return transform(0, todos, []);
+function transform(todos, index = 0) {
+  if (index >= todos.length) {
+    return todos;
+  }
+
+  // Line 8: Prepend 'done - ' to each todo description
+  todos[index] = 'done - ' + todos[index];
+
+  // Line 9: Recursively call the transform function
+  return transform(todos, index + 1);
 }
 
-function transform(index, todos, modifiedTodos){
-    if(index < todos.length){
-        // on this line - prepend the string 'done - ' to each `todo` description
-        // on this line - call transform recursively
-        return modifiedTodos
-    }else{
-        return modifiedTodos
-    }
-}
